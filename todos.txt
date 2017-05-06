@@ -1,0 +1,7 @@
+##TODOS
+	- Load bootstrap
+	- Load an image
+	- Load differente fonts formats
+	- Generate model and collection ¿spring-boot-rest api?
+	- Generate view and router
+	- Testing framework ¿jasmine, karma, mocha?
