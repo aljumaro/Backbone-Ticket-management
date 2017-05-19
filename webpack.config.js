@@ -19,6 +19,11 @@ const config = {
 			          presets: ['es2015']
 			        }
 			    }
+			},
+			{ 
+				test: /\.handlebars$/, 
+				exclude: /node_modules/,
+				loader: "handlebars-loader" 
 			}
 		]
 	},
@@ -26,7 +31,8 @@ const config = {
 		alias: {
 			jquery: 'jquery/src/jquery.js',
 			underscore: 'underscore/underscore.js',
-			backbone: 'backbone/backbone.js'
+			backbone: 'backbone/backbone.js',
+			handlebars: 'handlebars/dist/handlebars.min.js'
 		}
 	},
 	plugins: [

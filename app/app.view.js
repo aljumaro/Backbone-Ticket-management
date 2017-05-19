@@ -1,11 +1,17 @@
 const { View } = require('backbone');
 
+const TicketListView = require('./domain/ticket/ticket-list.view');
+
 module.exports = View.extend({
+
     initialize: function() {
         this.render();
     },
 
     render: function() {
-        this.$el.html('Hello Backbone');
+
+    	const ticketListView = new TicketListView();
+
+        this.$el.html(ticketListView.render().el);
     }
 });

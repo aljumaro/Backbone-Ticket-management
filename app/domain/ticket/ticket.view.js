@@ -1,25 +1,25 @@
 const _ = require('underscore');
+const $ = require('jquery');
 const { View } = require('backbone');
-const Ticket = require('./domain/ticket/ticket.model');
+var TicketTemplate = require("./ticket.view.handlebars");
 
 module.exports = View.extend({
 
 	tagName: 'li',
 
-	template: _.template('Test template');
-
 	events: {
 		'dblclick label': 'edit',
 	    'keypress .edit': 'updateOnEnter',
 	    'blur .edit':   'close'
-	}
+	},
 
     initialize: function(opts) {
     	this.options = opts || {};
     },
 
     render: function() {
-        this.$el.html(this.template(this.model.attributes));
+        this.$el.html(TicketTemplate(this.model.attributes));
+        return this;
     },
 
     edit: function() {
