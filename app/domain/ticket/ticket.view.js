@@ -1,9 +1,6 @@
-const _ = require('underscore');
-const $ = require('jquery');
-const { View } = require('backbone');
 var TicketTemplate = require("./ticket.view.handlebars");
 
-module.exports = View.extend({
+module.exports = Backbone.View.extend({
 
 	tagName: 'li',
 

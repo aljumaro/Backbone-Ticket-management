@@ -1,6 +1,4 @@
-const { Model } = require('backbone');
-
-module.exports = Model.extend({
+module.exports = Backbone.Model.extend({
     
     defaults: {
         title: '',

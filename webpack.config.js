@@ -27,14 +27,6 @@ const config = {
 			}
 		]
 	},
-	resolve: {
-		alias: {
-			jquery: 'jquery/src/jquery.js',
-			underscore: 'underscore/underscore.js',
-			backbone: 'backbone/backbone.js',
-			handlebars: 'handlebars/dist/handlebars.min.js'
-		}
-	},
 	plugins: [
 		new webpack.optimize.UglifyJsPlugin(),
 		new HtmlWebpackPlugin({template: './index.html'}),

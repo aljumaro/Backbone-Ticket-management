@@ -1,10 +1,8 @@
-const _ = require('underscore');
-const { View } = require('backbone');
 const TicketView = require('./ticket.view');
 const TicketCollection = require('./ticket.collection');
 const Ticket = require('./ticket.model');
 
-module.exports = View.extend({
+module.exports = Backbone.View.extend({
 	tagName: 'ul',
 
 	className: 'container',
