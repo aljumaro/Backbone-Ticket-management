@@ -1,4 +1,6 @@
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackIncludeAssetsPlugin = require('html-webpack-include-assets-plugin');
 const webpack = require('webpack');
 const path = require('path');
 
@@ -28,8 +30,18 @@ const config = {
 		]
 	},
 	plugins: [
+		new CopyWebpackPlugin([
+		    { from: 'node_modules/bootstrap/dist/css', to: 'css/' },
+		    { from: 'node_modules/bootstrap/dist/fonts', to: 'fonts/' }
+		]),
+		new HtmlWebpackPlugin({
+			template: './index.html'
+		}),
+		new HtmlWebpackIncludeAssetsPlugin({
+		    assets: ['css/bootstrap.min.css', 'css/bootstrap-theme.min.css'],
+		    append: false
+		}),
 		new webpack.optimize.UglifyJsPlugin(),
-		new HtmlWebpackPlugin({template: './index.html'}),
 		new webpack.ProvidePlugin({
 			$: 'jquery',
 			jQuery: 'jquery',
