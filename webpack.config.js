@@ -5,7 +5,7 @@ const webpack = require('webpack');
 const path = require('path');
 
 const config = {
-	entry: './app/index.js',
+	entry: './src/js/index.js',
 	output: {
 		path: path.resolve(__dirname, 'dist'),
 		filename: 'app.bundle.js'
@@ -31,14 +31,13 @@ const config = {
 	},
 	plugins: [
 		new CopyWebpackPlugin([
-		    { from: 'node_modules/bootstrap/dist/css', to: 'css/' },
-		    { from: 'node_modules/bootstrap/dist/fonts', to: 'fonts/' }
+		    { from: 'src/css', to: 'css/' }
 		]),
 		new HtmlWebpackPlugin({
-			template: './index.html'
+			template: './src/index.html'
 		}),
 		new HtmlWebpackIncludeAssetsPlugin({
-		    assets: ['css/bootstrap.min.css', 'css/bootstrap-theme.min.css'],
+		    assets: ['css/base.css'],
 		    append: false
 		}),
 		new webpack.optimize.UglifyJsPlugin(),
