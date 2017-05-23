@@ -1,4 +1,3 @@
-//const TicketListView = require('./domain/ticket/ticket-list.view');
 var StatsTemplate = require("./stats.view.handlebars");
 const TodoCollection = require('./domain/todo/todo.collection');
 const TodoView = require('./domain/todo/todo.view');
@@ -40,7 +39,7 @@ module.exports = Backbone.View.extend({
     },
 
     filterOne: function(todo) {
-    	todo.trigger('visible');
+    	todo.trigger('visible', this.currentFilter);
     },
 
     filterAll: function(){
@@ -87,6 +86,11 @@ module.exports = Backbone.View.extend({
     			remaining: remaining,
     			multipleRemaining: multipleRemaining
     		}));
+
+            this.$('#filters li a')
+            .removeClass('selected')
+            .filter('[href="#/' + ( this.currentFilter || '' ) + '"]')
+            .addClass('selected');
     	} else {
     		this.$main.hide();
     		this.$footer.hide();
