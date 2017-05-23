@@ -25,7 +25,13 @@ const config = {
 			{ 
 				test: /\.handlebars$/, 
 				exclude: /node_modules/,
-				loader: "handlebars-loader" 
+				use: {
+					loader: "handlebars-loader",
+					options: {
+						helperDirs: [path.resolve(__dirname, 'src/js/helpers')],
+						partialDirs: [path.resolve(__dirname, 'src/js/partials')]
+					}
+				}
 			}
 		]
 	},

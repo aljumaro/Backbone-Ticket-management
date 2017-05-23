@@ -1,10 +1,5 @@
 <span class="todo-count"><strong>{{remaining}}</strong> 
-{{#if multipleRemainin}}
-	item
-{{else}}
-	items
-{{/if}}
-left
+{{plural remaining 'item'}} left
 </span>
 <ul class="filters">
 	<li>
